@@ -49,3 +49,37 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+Output:
+set network interface tunnel units tunnel.1 ipv6 enabled no
+set network interface tunnel units tunnel.1 comment '20.20.0.0 VPN'
+set zone vpn network layer3 tunnel.1
+set network virtual-router 'default-vrf' interface [ tunnel.1 ]
+
+
+set network interface tunnel units tunnel.2 ipv6 enabled no
+set network interface tunnel units tunnel.2 comment '20.20.0.1 VPN'
+set zone vpn network layer3 tunnel.2
+set network virtual-router 'default-vrf' interface [ tunnel.2 ]
+
+
+set network interface tunnel units tunnel.3 ipv6 enabled no
+set network interface tunnel units tunnel.3 comment '20.20.0.2 VPN'
+set zone vpn network layer3 tunnel.3
+set network virtual-router 'default-vrf' interface [ tunnel.3 ]
+
+
+set network interface tunnel units tunnel.4 ipv6 enabled no
+set network interface tunnel units tunnel.4 comment '20.20.0.3 VPN'
+set zone vpn network layer3 tunnel.4
+set network virtual-router 'default-vrf' interface [ tunnel.4 ]
+
+
+set network interface tunnel units tunnel.5 ipv6 enabled no
+set network interface tunnel units tunnel.5 comment '20.20.0.4 VPN'
+set zone vpn network layer3 tunnel.5
+set network virtual-router 'default-vrf' interface [ tunnel.5 ]
+
+
+"""
