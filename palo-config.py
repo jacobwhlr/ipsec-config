@@ -39,10 +39,10 @@ def main():
     for i in range(0, 5):
         print(f"set network interface tunnel units tunnel.{i + 1} ipv6 enabled no")
         print(f"set network interface tunnel units tunnel.{i + 1} comment '{EXT_IP[i]} VPN'")
-        print(f"set zone vpn network layer3 tunnel.{i + 1}")
+        print(f"set vsys vsys1 zone vpn network layer3 tunnel.{i + 1}")
+        print(f"set vsys vsys1 import network interface tunnel.{i + 1}")
         print(f"set network virtual-router 'default-vrf' interface [ tunnel.{i + 1} ]")
         print("\n")
-
     # Close opend file
     # on_boarding_file.close()
 
