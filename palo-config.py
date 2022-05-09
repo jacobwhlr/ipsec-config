@@ -75,6 +75,8 @@ def main():
         print(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} metric 10")
         print(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} destination {CUSTOMER_CLIENTS[i]}")
         print("===============================================================================================")
+        #print(f"RJ stuff: Outside interface is: {EXT_IP[i]}")
+        #print(f"RJ stuff: your acl is: {CUSTOMER_CLIENTS[i]} to {NESG_SERVERS[i]}")
 
         on_boarding_file.write(f"set network interface tunnel units tunnel.{i + 1} ipv6 enabled no \n")
         on_boarding_file.write(f"set network interface tunnel units tunnel.{i + 1} comment '{EXT_IP[i]} VPN' \n")
@@ -104,6 +106,8 @@ def main():
         on_boarding_file.write(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} interface tunnel.{i + 1} \n")
         on_boarding_file.write(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} metric 10 \n")
         on_boarding_file.write(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} destination {CUSTOMER_CLIENTS[i]} \n")
+        #on_boarding_file.write(f"RJ stuff: Outside interface is: {EXT_IP[i]} \n")
+        #on_boarding_file.write(f"RJ stuff: your acl is: {CUSTOMER_CLIENTS[i]} to {NESG_SERVERS[i]} \n")
         on_boarding_file.write("\n")
         on_boarding_file.write("\n")
 
