@@ -72,7 +72,7 @@ def main():
         print("===============================================================================================")
         print(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} interface tunnel.{i + 1}")
         print(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} metric 10")
-        print(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} destination CUSTOMER_CLIENTS[i]")
+        print(f"set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.{i + 1} destination {CUSTOMER_CLIENTS[i]}")
         print("===============================================================================================")
 
     # Close opend file
@@ -84,7 +84,6 @@ if __name__ == "__main__":
 
 """
 Output:
-
 ===============================================================================================
 set network interface tunnel units tunnel.1 ipv6 enabled no
 set network interface tunnel units tunnel.1 comment '20.20.0.0 VPN'
@@ -116,7 +115,7 @@ set network tunnel ipsec IP-20.20.0.0 tunnel-interface tunnel.1
 ===============================================================================================
 set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.1 interface tunnel.1
 set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.1 metric 10
-set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.1 destination CUSTOMER_CLIENTS[i]
+set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.1 destination 10.20.0.0
 ===============================================================================================
 ===============================================================================================
 set network interface tunnel units tunnel.2 ipv6 enabled no
@@ -149,6 +148,6 @@ set network tunnel ipsec IP-20.20.0.1 tunnel-interface tunnel.2
 ===============================================================================================
 set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.2 interface tunnel.2
 set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.2 metric 10
-set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.2 destination CUSTOMER_CLIENTS[i]
+set network virtual-router 'default-vrf' routing-table ip static-route Route_to_tunnel.2 destination 10.20.0.1
 ===============================================================================================
 """
